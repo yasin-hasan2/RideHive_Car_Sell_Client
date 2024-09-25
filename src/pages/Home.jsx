@@ -1,17 +1,14 @@
 // import React from "react";
-import Navbar from "../components/Navbar";
 import Hero from "../components/Home/Hero/Hero";
 import Featured from "../components/Home/Featured/Featured";
 import WhyUs from "../components/Home/WhyUs/WhyUs";
 import OurMission from "../components/Home/Mission/OurMission";
 import CarNews from "../components/Home/News/CarNews";
-import Footer from "../components/Footer";
 import { CallToAction } from "../components/Home/CTA/CTA";
 
 const Home = () => {
   return (
     <>
-      <Navbar />
       {/* Main Content with Background */}
       <div className="relative pb-20">
         {/* Background Layer */}
@@ -24,7 +21,6 @@ const Home = () => {
         <CarNews />
         <CallToAction />
       </div>
-      <Footer />
     </>
   );
 };

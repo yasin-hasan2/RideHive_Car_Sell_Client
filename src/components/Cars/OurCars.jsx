@@ -5,7 +5,7 @@ const OurCars = () => {
   const [carsData, setCarsData] = useState([]); // Fix: using square brackets instead of curly
 
   useEffect(() => {
-    fetch("https://car-selling-server-gules.vercel.app/cars")
+    fetch("http://localhost:5000/cars")
       .then((res) => res.json())
       .then((data) => setCarsData(data));
   }, []); // Empty array ensures it runs once on mount
@@ -64,7 +64,7 @@ const OurCars = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-5">
-          {carsData.map((item) => {
+          {carsData?.map((item) => {
             return (
               <div key={item.id}>
                 <CarsCard img={item.img} name={item.name} price={item.price} />

@@ -2,8 +2,9 @@ import { useState } from "react";
 import { GiSteeringWheel } from "react-icons/gi";
 import { AiOutlineClose } from "react-icons/ai";
 import { RiMenuUnfoldFill } from "react-icons/ri";
-import { Link } from "react-router-dom";
-import useAOS from "../hooks/useAos";
+import { Link, NavLink } from "react-router-dom";
+import useAOS from "../../hooks/useAos";
+import "./navbar.css";
 
 const Navbar = () => {
   useAOS();
@@ -23,10 +24,7 @@ const Navbar = () => {
         <div className=" flex justify-between items-center md:border border-black/45 md:p-2.5 rounded-xl mx-auto relative">
           {/* Logo Section */}
 
-          <div
-            data-aos="fade-left"
-            className="border h-10 p-2 gap-3  rounded-lg inline-flex justify-center items-center border-black/45"
-          >
+          <div className="border h-10 p-2 gap-3  rounded-lg inline-flex justify-center items-center border-black/45">
             <GiSteeringWheel size={24} className="text-black" />
             <h1 className="text-3xl font-bold font-serif">
               {" "}
@@ -36,31 +34,48 @@ const Navbar = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:block">
-            <nav className="flex gap-8 text-sm">
-              <Link
+            <nav className="flex gap-8 text-sm font-semibold">
+              <NavLink
                 to="/"
-                className="text-black hover:text-gray-700 transition"
+                exact
+                className={({ isActive }) =>
+                  isActive
+                    ? "text-primary transition"
+                    : " text-black hover:text-primary transition"
+                }
               >
                 Home
-              </Link>
-              <Link
+              </NavLink>
+              <NavLink
                 to="/about"
-                className="text-black hover:text-gray-700 transition"
+                className={({ isActive }) =>
+                  isActive
+                    ? "text-primary transition"
+                    : " text-black hover:text-primary transition"
+                }
               >
                 About Us
-              </Link>
-              <Link
+              </NavLink>
+              <NavLink
                 to="/cars"
-                className="text-black hover:text-gray-700 transition"
+                className={({ isActive }) =>
+                  isActive
+                    ? "text-primary transition"
+                    : " text-black hover:text-primary transition"
+                }
               >
                 Our Cars
-              </Link>
-              <Link
-                to="/services"
-                className="text-black hover:text-gray-700 transition"
+              </NavLink>
+              <NavLink
+                to="/service"
+                className={({ isActive }) =>
+                  isActive
+                    ? "text-primary transition"
+                    : " text-black hover:text-primary transition"
+                }
               >
                 Services
-              </Link>
+              </NavLink>
             </nav>
           </div>
 
